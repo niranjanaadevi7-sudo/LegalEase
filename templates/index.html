@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>LegalEase | AI Legal Assistant</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ⚖
+            </div>
+
+            <div>
+                <h2>LegalEase</h2>
+                <p>AI Legal Assistant</p>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button class="nav-btn active">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-btn">
+                <span>▣</span>
+                Documents
+            </button>
+
+            <button class="nav-btn">
+                <span>✦</span>
+                AI Assistant
+            </button>
+
+            <button class="nav-btn">
+                <span>ⓘ</span>
+                About
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="privacy-box">
+
+                <span>🔒</span>
+
+                <div>
+
+                    <strong>
+                        Privacy First
+                    </strong>
+
+                    <p>
+                        Your API key stays
+                        on the server.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="small-heading">
+                    Welcome to LegalEase
+                </p>
+
+                <h1>
+                    Your AI-powered
+                    <span>Legal Assistant</span>
+                </h1>
+
+            </div>
+
+
+            <div class="online">
+
+                <span></span>
+
+                AI Online
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    ✨ AI-POWERED LEGAL DRAFTING
+                </div>
+
+                <h2>
+                    Create legal documents
+                    <br>
+                    <span>in minutes.</span>
+                </h2>
+
+                <p>
+                    Generate professional legal document
+                    drafts with the help of AI.
+                </p>
+
+            </div>
+
+
+            <div class="hero-symbol">
+                ⚖
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= GENERATOR ================= -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Create a Legal Document
+                    </h2>
+
+                    <p>
+                        Provide the details and let
+                        LegalEase prepare your draft.
+                    </p>
+
+                </div>
+
+                <div class="step-number">
+                    01
+                </div>
+
+            </div>
+
+
+
+            <!-- DOCUMENT TYPE -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Document Type
+                    </label>
+
+                    <select id="documentType">
+
+                        <option value="">
+                            Select a document
+                        </option>
+
+                        <option value="Employment Agreement">
+                            Employment Agreement
+                        </option>
+
+                        <option value="Non-Disclosure Agreement">
+                            Non-Disclosure Agreement
+                        </option>
+
+                        <option value="Rental Agreement">
+                            Rental Agreement
+                        </option>
+
+                        <option value="Service Agreement">
+                            Service Agreement
+                        </option>
+
+                        <option value="Freelance Agreement">
+                            Freelance Agreement
+                        </option>
+
+                        <option value="Partnership Agreement">
+                            Partnership Agreement
+                        </option>
+
+                        <option value="Legal Notice">
+                            Legal Notice
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Main Purpose
+                    </label>
+
+                    <input
+                        id="purpose"
+                        type="text"
+                        placeholder="Example: Hiring a software developer"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label>
+                    Tell us what you need
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe the parties involved, responsibilities, duration, payment terms, location, and any other important details..."
+                ></textarea>
+
+
+                <div class="textarea-info">
+
+                    <span>
+                        💡 Include as many relevant
+                        details as possible.
+                    </span>
+
+                    <span id="counter">
+                        0 characters
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GENERATE BUTTON -->
+
+            <button
+                id="generateBtn"
+                class="generate-btn"
+            >
+
+                <span>
+                    ✨
+                </span>
+
+                Generate Document
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section
+            id="resultCard"
+            class="card result-card hidden"
+        >
+
+            <div class="card-header">
+
+                <div>
+
+                    <p class="result-label">
+                        GENERATED DOCUMENT
+                    </p>
+
+                    <h2 id="resultTitle">
+                        Legal Document
+                    </h2>
+
+                </div>
+
+
+                <div class="download-buttons">
+
+                    <button id="copyBtn">
+                        Copy
+                    </button>
+
+                    <button id="downloadTxt">
+                        TXT
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="result"
+                class="result"
+            ></div>
+
+
+            <div class="notice">
+
+                ⚠️
+
+                <div>
+
+                    <strong>
+                        Important Notice
+                    </strong>
+
+                    <p>
+                        This is an AI-generated draft
+                        for informational purposes.
+                        It is not a substitute for
+                        professional legal advice.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="features">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    AI-Powered
+                </h3>
+
+                <p>
+                    Generate structured legal
+                    document drafts using AI.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Easy to Use
+                </h3>
+
+                <p>
+                    Describe your requirements
+                    in simple language.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔒
+                </div>
+
+                <h3>
+                    Secure
+                </h3>
+
+                <p>
+                    Your Gemini API key remains
+                    on the backend.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                © 2026 LegalEase · AI Legal Assistant
+            </p>
+
+            <p>
+                AI-generated content should be
+                reviewed by a qualified professional.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
